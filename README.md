@@ -1,4 +1,4 @@
-# Proyect_PHP_CRUD
+# Project_PHP_CRUD
 
 Este proyecto es una aplicación básica de CRUD (Crear, Leer, Actualizar, Eliminar) desarrollada en PHP utilizando un patrón de diseño MVC (Modelo-Vista-Controlador). La aplicación permite la gestión de usuarios, ciudades y títulos de trabajo.
 
@@ -28,7 +28,7 @@ Este proyecto es una aplicación básica de CRUD (Crear, Leer, Actualizar, Elimi
 
 2. Navega al directorio del proyecto:
     ```bash
-    cd Proyect_PHP_CRUD
+    cd php-mvc-crud
     ```
 
 3. Configura tu base de datos en `config/database.php`.
@@ -41,7 +41,7 @@ Este proyecto es una aplicación básica de CRUD (Crear, Leer, Actualizar, Elimi
 
 - Abre el navegador y ve a la URL principal del proyecto, por ejemplo:
     ```bash
-    http://localhost/Proyect_PHP_CRUD/public/
+    http://localhost/Project_PHP_CRUD/public/
     ```
 
 ## Dependencias

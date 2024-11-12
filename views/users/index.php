@@ -12,7 +12,7 @@
 
     <div class="container mt-5 ms-3" style="flex-grow: 1;">
         <h1 class="mb-4">Listado de Usuarios</h1>
-        <a href="/Proyect_PHP_CRUD/public/users/create" class="btn btn-primary mb-3">Crear nuevo usuario</a>
+        <a href="/Project_PHP_CRUD/public/users/create" class="btn btn-primary mb-3">Crear nuevo usuario</a>
 
         <table class="table table-striped table-bordered">
             <thead>
@@ -35,9 +35,9 @@
                         <td><?php echo $user->job_title; ?></td>
                         <td><?php echo $user->city; ?></td>
                         <td>
-                            <a href="/Proyect_PHP_CRUD/public/users/<?php echo $user->id; ?>" class="btn btn-info btn-sm">Ver</a>
-                            <a href="/Proyect_PHP_CRUD/public/users/<?php echo $user->id; ?>/edit" class="btn btn-warning btn-sm">Editar</a>
-                            <form action="/Proyect_PHP_CRUD/public/users/<?php echo $user->id; ?>/delete" method="POST" style="display:inline;">
+                            <a href="/Project_PHP_CRUD/public/users/<?php echo $user->id; ?>" class="btn btn-info btn-sm">Ver</a>
+                            <a href="/Project_PHP_CRUD/public/users/<?php echo $user->id; ?>/edit" class="btn btn-warning btn-sm">Editar</a>
+                            <form action="/Project_PHP_CRUD/public/users/<?php echo $user->id; ?>/delete" method="POST" style="display:inline;">
                                 <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                             </form>
                         </td>

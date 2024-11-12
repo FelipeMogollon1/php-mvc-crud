@@ -14,7 +14,7 @@
         <h1 class="mb-4">Detalle de Ciudad</h1>
         <p><strong>ID:</strong> <?php echo $city->id; ?></p>
         <p><strong>Nombre:</strong> <?php echo $city->name; ?></p>
-        <a href="/Proyect_PHP_CRUD/public/cities" class="btn btn-secondary">Volver al listado</a>
+        <a href="/Project_PHP_CRUD/public/cities" class="btn btn-secondary">Volver al listado</a>
     </div>
 </div>
 </body>

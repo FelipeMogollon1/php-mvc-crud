@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <h1 class="mb-4 text-center">Editar Usuario</h1>
-                <form action="/Proyect_PHP_CRUD/public/users/<?php echo $user->id; ?>/update" method="POST">
+                <form action="/Project_PHP_CRUD/public/users/<?php echo $user->id; ?>/update" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre:</label>
                         <input type="text" id="name" name="name" class="form-control" value="<?php echo $user->name; ?>" required>
@@ -57,7 +57,7 @@
                     <button type="submit" class="btn btn-primary w-100">Actualizar Usuario</button>
                 </form>
 
-                <a href="/Proyect_PHP_CRUD/public/" class="btn btn-secondary w-100 mt-3">Volver al listado</a>
+                <a href="/Project_PHP_CRUD/public/" class="btn btn-secondary w-100 mt-3">Volver al listado</a>
             </div>
         </div>
     </div>

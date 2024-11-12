@@ -32,23 +32,23 @@
                     </tr>
                     <tr>
                         <th>Ciudad</th>
-                        <td><?php echo $city->name; ?></td> <!-- Mostrar nombre de la ciudad -->
+                        <td><?php echo $city->name; ?></td>
                     </tr>
                     <tr>
                         <th>Título de Trabajo</th>
-                        <td><?php echo $jobTitle->name; ?></td> <!-- Mostrar nombre del título de trabajo -->
+                        <td><?php echo $jobTitle->name; ?></td>
                     </tr>
                     </tbody>
                 </table>
 
                 <div class="d-flex justify-content-between mt-4">
-                    <a href="/Proyect_PHP_CRUD/public/users/<?php echo $user->id; ?>/edit" class="btn btn-warning">Editar</a>
+                    <a href="/Project_PHP_CRUD/public/users/<?php echo $user->id; ?>/edit" class="btn btn-warning">Editar</a>
 
-                    <form action="/Proyect_PHP_CRUD/public/users/<?php echo $user->id; ?>/delete" method="POST" style="display:inline;">
+                    <form action="/Project_PHP_CRUD/public/users/<?php echo $user->id; ?>/delete" method="POST" style="display:inline;">
                         <button type="submit" class="btn btn-danger">Eliminar</button>
                     </form>
 
-                    <a href="/Proyect_PHP_CRUD/public/" class="btn btn-secondary">Volver al listado</a>
+                    <a href="/Project_PHP_CRUD/public/" class="btn btn-secondary">Volver al listado</a>
                 </div>
             </div>
         </div>

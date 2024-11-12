@@ -1,7 +1,6 @@
 RewriteEngine On
-RewriteBase /Proyect_PHP_CRUD/public/
+RewriteBase /Project_PHP_CRUD/public/
 
-# Redirigir todas las solicitudes a index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]

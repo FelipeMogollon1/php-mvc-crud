@@ -6,19 +6,19 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="/Proyect_PHP_CRUD/public/users/" class="nav-link active" aria-current="page">
+            <a href="/Project_PHP_CRUD/public/users/" class="nav-link active" aria-current="page">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
                 Users
             </a>
         </li>
         <li>
-            <a href="/Proyect_PHP_CRUD/public/cities/" class="nav-link text-white">
+            <a href="/Project_PHP_CRUD/public/cities/" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
                 Cities
             </a>
         </li>
         <li>
-            <a href="/Proyect_PHP_CRUD/public/jobs/" class="nav-link text-white">
+            <a href="/Project_PHP_CRUD/public/jobs/" class="nav-link text-white">
                 <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
                 Jobs
             </a>

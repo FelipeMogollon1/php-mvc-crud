@@ -15,7 +15,7 @@
     <!-- Contenido principal -->
     <div class="container mt-5 ms-3" style="flex-grow: 1;">
         <h1 class="mb-4">Lista de Títulos de Trabajo</h1>
-        <a href="/Proyect_PHP_CRUD/public/job_titles/create" class="btn btn-primary mb-3">Crear Nuevo Título</a>
+        <a href="/Project_PHP_CRUD/public/job_titles/create" class="btn btn-primary mb-3">Crear Nuevo Título</a>
 
         <table class="table table-striped table-bordered">
             <thead>
@@ -32,9 +32,9 @@
                         <td><?= $jobTitle->id ?></td>
                         <td><?= htmlspecialchars($jobTitle->name) ?></td>
                         <td>
-                            <a href="/Proyect_PHP_CRUD/public/job_titles/<?= $jobTitle->id ?>" class="btn btn-info btn-sm">Ver</a>
-                            <a href="/Proyect_PHP_CRUD/public/job_titles/<?= $jobTitle->id ?>/edit" class="btn btn-warning btn-sm">Editar</a>
-                            <form action="/Proyect_PHP_CRUD/public/job_titles/<?= $jobTitle->id ?>/delete" method="POST" style="display:inline;">
+                            <a href="/Project_PHP_CRUD/public/job_titles/<?= $jobTitle->id ?>" class="btn btn-info btn-sm">Ver</a>
+                            <a href="/Project_PHP_CRUD/public/job_titles/<?= $jobTitle->id ?>/edit" class="btn btn-warning btn-sm">Editar</a>
+                            <form action="/Project_PHP_CRUD/public/job_titles/<?= $jobTitle->id ?>/delete" method="POST" style="display:inline;">
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro de que desea eliminar este título?');">Eliminar</button>
                             </form>
                         </td>

@@ -23,31 +23,45 @@ class CityController {
     }
 
     public function store() {
-        $cityModel = new City();
-        $cityModel->name = $_POST['name'];
+        if (isset($_POST['name']) && !empty(trim($_POST['name']))) {
+            $cityModel = new City();
+            $cityModel->name = trim($_POST['name']);
 
-        if ($cityModel->create()) {
-            header("Location: /cities");
+            if ($cityModel->create()) {
+                header("Location: /Project_PHP_CRUD/public/cities");
+            } else {
+                echo "Error: don't save city.";
+            }
         } else {
-            echo "Error: No se pudo crear la ciudad.";
+            echo "Error: name is required.";
         }
     }
 
     public function edit($id) {
         $cityModel = new City();
         $city = $cityModel->getById($id);
-        include '../views/cities/edit.php';
+
+        if ($city) {
+            include '../views/cities/edit.php';
+        } else {
+            echo "Error: Ciudad no encontrada.";
+        }
     }
 
     public function update($id) {
-        $cityModel = new City();
-        $cityModel->id = $id;
-        $cityModel->name = $_POST['name'];
+        if (isset($_POST['name']) && !empty(trim($_POST['name']))) {
+            $cityModel = new City();
+            $cityModel->id = $id;
+            $cityModel->name = trim($_POST['name']);
 
-        if ($cityModel->update()) {
-            header("Location: /cities");
+            if ($cityModel->update()) {
+                header("Location: /Project_PHP_CRUD/public/cities");
+                exit();
+            } else {
+                echo "Error: No se pudo actualizar la ciudad.";
+            }
         } else {
-            echo "Error: No se pudo actualizar la ciudad.";
+            echo "Error: El nombre de la ciudad es requerido.";
         }
     }
 
@@ -56,9 +70,10 @@ class CityController {
         $cityModel->id = $id;
 
         if ($cityModel->delete()) {
-            header("Location: /cities");
+            header("Location: /Project_PHP_CRUD/public/cities");
+            exit();
         } else {
-            echo "Error: can't delete city.";
+            echo "Error: No se pudo eliminar la ciudad.";
         }
     }
 }

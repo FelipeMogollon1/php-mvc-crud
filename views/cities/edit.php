@@ -8,13 +8,11 @@
 </head>
 <body>
 <div class="d-flex">
-    <!-- Incluir el sidebar -->
     <?php include __DIR__ . '/../partials/sidebar.php'; ?>
 
-    <!-- Contenido principal -->
     <div class="container mt-5 ms-3" style="flex-grow: 1;">
         <h1 class="mb-4">Editar Ciudad</h1>
-        <form action="/Proyect_PHP_CRUD/public/cities/<?php echo $city->id; ?>/update" method="POST">
+        <form action="/Project_PHP_CRUD/public/cities/<?php echo $city->id; ?>/update" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre de la ciudad:</label>
                 <input type="text" id="name" name="name" class="form-control" value="<?php echo $city->name; ?>" required>
