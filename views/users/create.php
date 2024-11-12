@@ -48,7 +48,6 @@
                 <button type="submit" class="btn btn-primary w-100">Crear Usuario</button>
             </form>
 
-            <!-- Botón Volver al listado -->
             <a href="/Proyect_PHP_CRUD/public/" class="btn btn-secondary w-100 mt-3">Volver al listado</a>
         </div>
     </div>
