@@ -12,12 +12,12 @@ $userController = new UserController();
 $cityController = new CityController();
 $jobTitleController = new JobTitleController();
 
-$requestUri = $_SERVER['REQUEST_URI'];
-$baseUri = strpos($requestUri, '/Project_PHP_CRUD/public') === 0 ? '/Project_PHP_CRUD/public' : '/Project_PHP_CRUD';
-$requestUri = str_replace($baseUri, '', $requestUri);
+$baseUri = dirname($_SERVER['SCRIPT_NAME']);
+$requestUri = str_replace($baseUri, '', $_SERVER['REQUEST_URI']);
 $requestUri = rtrim($requestUri, '/');
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
+// Rutas para UserController
 if ($requestUri === '' || $requestUri === '/') {
     $userController->index();
 } elseif ($requestUri === '/users' && $requestMethod === 'GET') {
@@ -35,6 +35,7 @@ if ($requestUri === '' || $requestUri === '/') {
 } elseif (preg_match('/^\/users\/(\d+)\/delete$/', $requestUri, $matches) && $requestMethod === 'POST') {
     $userController->delete($matches[1]);
 
+// Rutas para CityController
 } elseif ($requestUri === '/cities' && $requestMethod === 'GET') {
     $cityController->index();
 } elseif ($requestUri === '/cities/create' && $requestMethod === 'GET') {
@@ -50,6 +51,7 @@ if ($requestUri === '' || $requestUri === '/') {
 } elseif (preg_match('/^\/cities\/(\d+)\/delete$/', $requestUri, $matches) && $requestMethod === 'POST') {
     $cityController->delete($matches[1]);
 
+// Rutas para JobTitleController
 } elseif ($requestUri === '/jobs' && $requestMethod === 'GET') {
     $jobTitleController->index();
 } elseif ($requestUri === '/jobs/create' && $requestMethod === 'GET') {

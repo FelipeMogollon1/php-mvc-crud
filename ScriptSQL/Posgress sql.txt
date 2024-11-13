@@ -1,0 +1,53 @@
+-- Crear la base de datos solo si no existe
+DO $$
+BEGIN
+   IF NOT EXISTS (SELECT 1 FROM pg_database WHERE datname = 'companydb') THEN
+      CREATE DATABASE companydb;
+   END IF;
+END$$;
+
+-- Conectar a la base de datos
+\connect companydb;
+
+-- Crear tabla `cities` solo si no existe
+CREATE TABLE IF NOT EXISTS cities (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+-- Insertar datos en `cities` solo si no existen
+INSERT INTO cities (id, name) VALUES
+(1, 'New York'),
+(2, 'Los Angeles'),
+(3, 'Chicago')
+ON CONFLICT DO NOTHING;
+
+-- Crear tabla `job_titles` solo si no existe
+CREATE TABLE IF NOT EXISTS job_titles (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+-- Insertar datos en `job_titles` solo si no existen
+INSERT INTO job_titles (id, name) VALUES
+(1, 'Manager'),
+(2, 'Supervisor'),
+(3, 'Employee')
+ON CONFLICT DO NOTHING;
+
+-- Crear tabla `users` solo si no existe
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  job_title_id INT REFERENCES job_titles(id) ON DELETE SET NULL,
+  city_id INT REFERENCES cities(id) ON DELETE SET NULL
+);
+
+-- Insertar datos en `users` solo si no existen
+INSERT INTO users (id, name, email, password, job_title_id, city_id) VALUES
+(1, 'John Smith', 'john.smith@example.com', '482c811da5d5b4bc6d497ffa98491e38', 1, 1),
+(2, 'Jane Doe', 'jane.doe@example.com', '482c811da5d5b4bc6d497ffa98491e38', 2, 2),
+(3, 'Robert Johnson', 'robert.johnson@example.com', '482c811da5d5b4bc6d497ffa98491e38', 3, 3)
+ON CONFLICT DO NOTHING;

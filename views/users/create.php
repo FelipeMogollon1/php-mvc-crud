@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/../../functions/UrlHelper.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,44 +16,45 @@
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <h1 class="mb-4 text-center">Crear Nuevo Usuario</h1>
-                <form action="/Project_PHP_CRUD/public/users" method="POST">
+                <form action="<?php echo base_url(); ?>/users" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre:</label>
                         <input type="text" id="name" name="name" class="form-control" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" class="form-control" required>
-                    </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña:</label>
-                        <input type="password" id="password" name="password" class="form-control" required>
-                    </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="city_id" class="form-label">Ciudad:</label>
-                        <select name="city_id" id="city_id" class="form-select" required>
-                            <?php foreach ($cities as $city): ?>
-                                <option value="<?= $city->id; ?>"><?= $city->name; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label for="city_id" class="form-label">Ciudad:</label>
+                    <select name="city_id" id="city_id" class="form-select" required>
+                        <?php foreach ($cities as $city): ?>
+                            <option value="<?= $city->id; ?>"><?= $city->name; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="job_title_id" class="form-label">Título de Trabajo:</label>
-                        <select name="job_title_id" id="job_title_id" class="form-select" required>
-                            <?php foreach ($jobTitles as $jobTitle): ?>
-                                <option value="<?= $jobTitle->id; ?>"><?= $jobTitle->name; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label for="job_title_id" class="form-label">Título de Trabajo:</label>
+                    <select name="job_title_id" id="job_title_id" class="form-select" required>
+                        <?php foreach ($jobTitles as $jobTitle): ?>
+                            <option value="<?= $jobTitle->id; ?>"><?= $jobTitle->name; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Crear Usuario</button>
-                </form>
+                <button type="submit" class="btn btn-primary w-100">Crear Usuario</button>
+            </form>
 
-                <a href="/Project_PHP_CRUD/public/" class="btn btn-secondary w-100 mt-3">Volver al listado</a>
+                <!-- Botón Volver al listado -->
+                <a href="<?php echo base_url(); ?>/" class="btn btn-secondary w-100 mt-3">Volver al listado</a>
             </div>
         </div>
     </div>
