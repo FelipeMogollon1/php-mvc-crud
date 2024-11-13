@@ -53,7 +53,6 @@
                     <button type="submit" class="btn btn-primary w-100">Crear Usuario</button>
                 </form>
 
-                <!-- Botón Volver al listado -->
                 <a href="<?php echo base_url(); ?>/" class="btn btn-secondary w-100 mt-3">Volver al listado</a>
             </div>
         </div>

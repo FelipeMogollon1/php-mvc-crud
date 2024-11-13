@@ -46,12 +46,32 @@
                 <div class="d-flex justify-content-between mt-4">
                     <a href="<?php echo base_url(); ?>/users/<?php echo $user->id; ?>/edit" class="btn btn-warning">Editar</a>
 
-                    <form action="<?php echo base_url(); ?>/users/<?php echo $user->id; ?>/delete" method="POST" style="display:inline;">
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-<?php echo $user->id; ?>">
+                        Eliminar
+                    </button>
 
                     <a href="<?php echo base_url(); ?>" class="btn btn-secondary">Volver al listado</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal-<?php echo $user->id; ?>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este usuario?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form action="<?php echo base_url(); ?>/users/<?php echo $user->id; ?>/delete" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
             </div>
         </div>
     </div>
