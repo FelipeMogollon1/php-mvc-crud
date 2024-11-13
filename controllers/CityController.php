@@ -3,7 +3,10 @@
 namespace Controllers;
 
 use Models\City;
+
 require_once '../models/City.php';
+require_once __DIR__ . '/../functions/UrlHelper.php';
+
 
 class CityController {
     public function index() {
@@ -28,7 +31,7 @@ class CityController {
             $cityModel->name = trim($_POST['name']);
 
             if ($cityModel->create()) {
-                header("Location: /Project_PHP_CRUD/public/cities");
+                header("Location: " . base_url() . "/cities");
             } else {
                 echo "Error: don't save city.";
             }
@@ -44,7 +47,7 @@ class CityController {
         if ($city) {
             include '../views/cities/edit.php';
         } else {
-            echo "Error: Ciudad no encontrada.";
+            echo "Error: Don't find city.";
         }
     }
 
@@ -55,13 +58,13 @@ class CityController {
             $cityModel->name = trim($_POST['name']);
 
             if ($cityModel->update()) {
-                header("Location: /Project_PHP_CRUD/public/cities");
+                header("Location: " . base_url() . "/cities");
                 exit();
             } else {
-                echo "Error: No se pudo actualizar la ciudad.";
+                echo "Error: Don't save city.";
             }
         } else {
-            echo "Error: El nombre de la ciudad es requerido.";
+            echo "Error: the name is required.";
         }
     }
 
@@ -70,10 +73,10 @@ class CityController {
         $cityModel->id = $id;
 
         if ($cityModel->delete()) {
-            header("Location: /Project_PHP_CRUD/public/cities");
+            header("Location: " . base_url() . "/cities");
             exit();
         } else {
-            echo "Error: No se pudo eliminar la ciudad.";
+            echo "Error: Don't delete city.";
         }
     }
 }
