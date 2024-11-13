@@ -17,9 +17,6 @@ $requestUri = str_replace($baseUri, '', $_SERVER['REQUEST_URI']);
 $requestUri = rtrim($requestUri, '/');
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-echo 'Request URI: ' . $requestUri . '<br>';
-echo 'Request Method: ' . $requestMethod . '<br>';
-
 if ($requestUri === '' || $requestUri === '/') {
     $userController->index();
 } elseif ($requestUri === '/users' && $requestMethod === 'GET') {
