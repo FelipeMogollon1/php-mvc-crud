@@ -12,9 +12,8 @@ $userController = new UserController();
 $cityController = new CityController();
 $jobTitleController = new JobTitleController();
 
-$requestUri = $_SERVER['REQUEST_URI'];
-$baseUri = strpos($requestUri, '/Proyect_PHP_CRUD/public') === 0 ? '/Proyect_PHP_CRUD/public' : '/Proyect_PHP_CRUD';
-$requestUri = str_replace($baseUri, '', $requestUri);
+$baseUri = dirname($_SERVER['SCRIPT_NAME']);
+$requestUri = str_replace($baseUri, '', $_SERVER['REQUEST_URI']);
 $requestUri = rtrim($requestUri, '/');
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 

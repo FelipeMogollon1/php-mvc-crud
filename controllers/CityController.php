@@ -3,7 +3,10 @@
 namespace Controllers;
 
 use Models\City;
+
 require_once '../models/City.php';
+require_once __DIR__ . '/../functions/UrlHelper.php';
+
 
 class CityController {
     public function index() {
@@ -23,31 +26,45 @@ class CityController {
     }
 
     public function store() {
-        $cityModel = new City();
-        $cityModel->name = $_POST['name'];
+        if (isset($_POST['name']) && !empty(trim($_POST['name']))) {
+            $cityModel = new City();
+            $cityModel->name = trim($_POST['name']);
 
-        if ($cityModel->create()) {
-            header("Location: /cities");
+            if ($cityModel->create()) {
+                header("Location: " . base_url() . "/cities");
+            } else {
+                echo "Error: don't save city.";
+            }
         } else {
-            echo "Error: No se pudo crear la ciudad.";
+            echo "Error: name is required.";
         }
     }
 
     public function edit($id) {
         $cityModel = new City();
         $city = $cityModel->getById($id);
-        include '../views/cities/edit.php';
+
+        if ($city) {
+            include '../views/cities/edit.php';
+        } else {
+            echo "Error: Don't find city.";
+        }
     }
 
     public function update($id) {
-        $cityModel = new City();
-        $cityModel->id = $id;
-        $cityModel->name = $_POST['name'];
+        if (isset($_POST['name']) && !empty(trim($_POST['name']))) {
+            $cityModel = new City();
+            $cityModel->id = $id;
+            $cityModel->name = trim($_POST['name']);
 
-        if ($cityModel->update()) {
-            header("Location: /cities");
+            if ($cityModel->update()) {
+                header("Location: " . base_url() . "/cities");
+                exit();
+            } else {
+                echo "Error: Don't save city.";
+            }
         } else {
-            echo "Error: No se pudo actualizar la ciudad.";
+            echo "Error: the name is required.";
         }
     }
 
@@ -56,9 +73,10 @@ class CityController {
         $cityModel->id = $id;
 
         if ($cityModel->delete()) {
-            header("Location: /cities");
+            header("Location: " . base_url() . "/cities");
+            exit();
         } else {
-            echo "Error: can't delete city.";
+            echo "Error: Don't delete city.";
         }
     }
 }

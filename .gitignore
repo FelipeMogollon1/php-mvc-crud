@@ -1,0 +1,28 @@
+# Configuración de entornos de desarrollo
+.idea/
+.vscode/
+*.iml
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Dependencias del proyecto
+vendor/
+node_modules/
+
+# Archivos temporales y de caché
+*.log
+*.cache
+*.tmp
+*.swp
+.env
+
+# Archivos específicos de Composer
+composer.lock
+
+# Archivos de depuración
+error_log
+
+# Archivos de subidas temporales
+uploads/
