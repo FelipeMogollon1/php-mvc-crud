@@ -4,6 +4,8 @@ namespace Controllers;
 
 use Models\JobTitle;
 require_once '../models/JobTitle.php';
+require_once __DIR__ . '/../functions/UrlHelper.php';
+
 
 class JobTitleController {
     public function index() {
@@ -27,9 +29,9 @@ class JobTitleController {
         $jobTitleModel->name = $_POST['name'];
 
         if ($jobTitleModel->create()) {
-            header("Location: /job_titles");
+            header("Location: " . base_url() . "/jobs");
         } else {
-            echo "Error: No se pudo crear el título de trabajo.";
+            echo "Error: Could not create job title.";
         }
     }
 
@@ -45,9 +47,9 @@ class JobTitleController {
         $jobTitleModel->name = $_POST['name'];
 
         if ($jobTitleModel->update()) {
-            header("Location: /job_titles");
+            header("Location: " . base_url() . "/jobs");
         } else {
-            echo "Error: No se pudo actualizar el título de trabajo.";
+            echo "Error: Could not update job title.";
         }
     }
 
@@ -56,9 +58,9 @@ class JobTitleController {
         $jobTitleModel->id = $id;
 
         if ($jobTitleModel->delete()) {
-            header("Location: /job_titles");
+            header("Location: " . base_url() . "/jobs");
         } else {
-            echo "Error: No se pudo eliminar el título de trabajo.";
+            echo "Error: Could not delete job title.";
         }
     }
 }
