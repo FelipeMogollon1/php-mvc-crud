@@ -22,42 +22,42 @@
                         <input type="text" id="name" name="name" class="form-control" value="<?php echo $user->name; ?>" required>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" class="form-control" value="<?php echo $user->email; ?>" required>
-                    </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" class="form-control" value="<?php echo $user->email; ?>" required>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Contraseña:</label>
-                        <input type="password" id="password" name="password" class="form-control">
-                    </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña:</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
 
-                    <div class="mb-3">
-                        <label for="city_id" class="form-label">Ciudad:</label>
-                        <select name="city_id" id="city_id" class="form-select" required>
-                            <?php foreach ($cities as $city): ?>
-                                <option value="<?= $city->id; ?>"
-                                    <?= $city->id == $user->city_id ? 'selected' : ''; ?>>
-                                    <?= $city->name; ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label for="city_id" class="form-label">Ciudad:</label>
+                    <select name="city_id" id="city_id" class="form-select" required>
+                        <?php foreach ($cities as $city): ?>
+                            <option value="<?= $city->id; ?>"
+                                <?= $city->id == $user->city_id ? 'selected' : ''; ?>>
+                                <?= $city->name; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="job_title_id" class="form-label">Título de Trabajo:</label>
-                        <select name="job_title_id" id="job_title_id" class="form-select" required>
-                            <?php foreach ($jobTitles as $jobTitle): ?>
-                                <option value="<?= $jobTitle->id; ?>"
-                                    <?= $jobTitle->id == $user->job_title_id ? 'selected' : ''; ?>>
-                                    <?= $jobTitle->name; ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                <div class="mb-3">
+                    <label for="job_title_id" class="form-label">Título de Trabajo:</label>
+                    <select name="job_title_id" id="job_title_id" class="form-select" required>
+                        <?php foreach ($jobTitles as $jobTitle): ?>
+                            <option value="<?= $jobTitle->id; ?>"
+                                <?= $jobTitle->id == $user->job_title_id ? 'selected' : ''; ?>>
+                                <?= $jobTitle->name; ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Actualizar Usuario</button>
-                </form>
+                <button type="submit" class="btn btn-primary w-100">Actualizar Usuario</button>
+            </form>
 
                 <a href="<?php echo base_url(); ?>" class="btn btn-secondary w-100 mt-3">Volver al listado</a>
             </div>

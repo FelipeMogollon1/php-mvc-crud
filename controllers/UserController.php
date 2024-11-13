@@ -59,6 +59,7 @@ class UserController {
         }
     }
 
+    // Show the form to edit an existing user
     public function edit($id) {
         $userModel = new User();
         $user = $userModel->getById($id);
@@ -72,6 +73,7 @@ class UserController {
         include '../views/users/edit.php';
     }
 
+    // Handle the update of an existing user
     public function update($id) {
         $userModel = new User();
         $userModel->id = $id;
@@ -88,6 +90,7 @@ class UserController {
         }
     }
 
+    // Handle the deletion of a user
     public function delete($id) {
         $userModel = new User();
         $userModel->id = $id;
@@ -96,7 +99,7 @@ class UserController {
             header("Location: " . base_url() . "/users");
             exit;
         } else {
-            echo "Error: No se pudo eliminar el usuario.";
+            echo "Error: Could not delete user.";
         }
     }
 }
