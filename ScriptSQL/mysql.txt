@@ -1,0 +1,55 @@
+-- Crear la base de datos solo si no existe
+CREATE DATABASE IF NOT EXISTS companydb;
+USE companydb;
+
+-- Crear tabla `cities` solo si no existe
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insertar datos en `cities` solo si no existen
+INSERT IGNORE INTO `cities` (`id`, `name`) VALUES
+(1, 'New York'),
+(2, 'Los Angeles'),
+(3, 'Chicago');
+
+-- Crear tabla `job_titles` solo si no existe
+CREATE TABLE IF NOT EXISTS `job_titles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insertar datos en `job_titles` solo si no existen
+INSERT IGNORE INTO `job_titles` (`id`, `name`) VALUES
+(1, 'Manager'),
+(2, 'Supervisor'),
+(3, 'Employee');
+
+-- Crear tabla `users` solo si no existe
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL UNIQUE,
+  `password` varchar(255) NOT NULL,
+  `job_title_id` int(11) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `job_title_id` (`job_title_id`),
+  KEY `city_id` (`city_id`),
+  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`job_title_id`) REFERENCES `job_titles` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `users_ibfk_2` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Insertar datos en `users` solo si no existen
+INSERT IGNORE INTO `users` (`id`, `name`, `email`, `password`, `job_title_id`, `city_id`) VALUES
+(1, 'John Smith', 'john.smith@example.com', '482c811da5d5b4bc6d497ffa98491e38', 1, 1),
+(2, 'Jane Doe', 'jane.doe@example.com', '482c811da5d5b4bc6d497ffa98491e38', 2, 2),
+(3, 'Robert Johnson', 'robert.johnson@example.com', '482c811da5d5b4bc6d497ffa98491e38', 3, 3);
+
+-- Configurar AUTO_INCREMENT en las tablas
+ALTER TABLE `cities` AUTO_INCREMENT = 4;
+ALTER TABLE `job_titles` AUTO_INCREMENT = 4;
+ALTER TABLE `users` AUTO_INCREMENT = 4;
