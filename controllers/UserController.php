@@ -19,7 +19,6 @@ class UserController {
         include '../views/users/index.php';
     }
 
-    // Display a single user based on ID
     public function show($id) {
         $userModel = new User();
         $user = $userModel->getById($id);
