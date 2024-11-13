@@ -26,7 +26,6 @@
                 <div class="d-flex justify-content-between mt-4">
                     <a href="<?php echo base_url(); ?>/cities/<?php echo $city->id; ?>/edit" class="btn btn-warning">Editar</a>
 
-                    <!-- Botón Eliminar con Modal -->
                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-<?php echo $city->id; ?>">Eliminar</button>
 
                     <a href="<?php echo base_url(); ?>/cities" class="btn btn-secondary">Volver al listado</a>
